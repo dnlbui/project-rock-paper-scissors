@@ -1,0 +1,79 @@
+//fxn gets user string input. Lowercases it. Determines if rock, paper, and scissors. 
+const getUserChoice = (userInput) => {
+  
+  userInput = userInput.toLowerCase();
+
+  if(userInput === 'rock' || userInput === 'paper'| userInput === 'scissors'){
+    return userInput;
+  }
+  else{
+    console.log('Incorrect input. Please type rock, paper, or scissors');
+  }
+  
+}
+
+
+//fxn that gets computer's choice
+const getComputerChoice = () => {
+  
+  randomNumber = Math.floor(Math.random()*(3));
+  
+  if(randomNumber === 0){
+    return 'rock';
+  }
+  else if(randomNumber === 1){
+    return 'paper';
+  }
+  else if (randomNumber ===2){
+    return 'scissors'
+  }
+  
+}
+
+
+//fxn userchoice and computerchoice as parameters and determines winner
+const determineWinner = (userChoice, computerChoice) => {
+
+  
+  if(userChoice === computerChoice){
+    return 'tie';
+  }
+
+  if(userChoice === 'rock'){
+    if(computerChoice === 'paper'){
+      return 'computer won';
+    }
+    else{
+      return 'user won';
+    }
+  }
+  
+  if(userChoice === 'paper'){
+    if(computerChoice === 'scissors'){
+      return 'computer won';
+    }
+    else{
+      return 'user won';
+    }
+  }
+
+  if(userChoice === 'scissors'){
+    if(computerChoice === 'rock'){
+      return 'computer won';
+    }
+    else{
+      return 'user won';
+    }
+  }  
+}
+
+const playGame = () => {
+  const userChoice = getUserChoice('rock');
+  console.log("User's choice: " + userChoice);
+  const computerChoice = getComputerChoice();
+  console.log("Computer's choice: " + computerChoice);
+
+  console.log(determineWinner(userChoice,computerChoice));
+}
+
+playGame();
